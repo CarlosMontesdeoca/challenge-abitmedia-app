@@ -9,10 +9,8 @@ class Product extends Model
 {
     use HasFactory;
 
-    protected $keyType = 'string';
-
     protected $fillable = [
-        'id',
+        'sku',
         'serv',
         'category_id',
         'desc',
