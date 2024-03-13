@@ -23,3 +23,9 @@ Route::get('categories', 'App\Http\Controllers\CategoryController@getAll');
 Route::post('categories', 'App\Http\Controllers\CategoryController@create');
 Route::put('categories/{category}', 'App\Http\Controllers\CategoryController@update');
 Route::delete('categories/{category}', 'App\Http\Controllers\CategoryController@delete');
+
+
+Route::get('category/{category}/products', 'App\Http\Controllers\ProductController@getAll');
+Route::post('products', 'App\Http\Controllers\ProductController@create');
+Route::put('products/{product}', 'App\Http\Controllers\ProductController@update');
+Route::delete('products/{product}', 'App\Http\Controllers\ProductController@delete');
