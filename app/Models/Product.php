@@ -10,7 +10,7 @@ class Product extends Model
     use HasFactory;
 
     protected $keyType = 'string';
-    
+
     protected $fillable = [
         'id',
         'serv',
@@ -19,4 +19,9 @@ class Product extends Model
         'stock',
         'price'
     ];
+
+    
+    public function category() {
+        return $this->hasMany(Category::class);
+    }
 }
