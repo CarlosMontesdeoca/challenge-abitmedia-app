@@ -29,7 +29,7 @@ class ProductController extends Controller
                 'info' => $key
             ], 409);
         }
-        if (strlen($request->id) != 10){ array_push($logs, 'Identificador SKU debe tener 10 caracteres');}
+        if (strlen($request->sku) != 10){ array_push($logs, 'Identificador SKU debe tener 10 caracteres');}
         if (!$request->desc || $request->desc === ''){ array_push($logs, 'No existe una descripción del producto');}
         if (Product::where('desc', $request->desc)
         ->where('category_id', $request->category_id)
@@ -39,7 +39,8 @@ class ProductController extends Controller
                 'error' => $logs
             ], 409);
         }
-        return response()->json(Product::create($request->all()), 201);
+        
+        return response()->json(Product::create(array_merge($request->all(), ['serv' => (Category::find($request->category_id)->name === 'SERVICIO' ? true : false)])), 201);
     }
     
     public function update(Product $product, Request $request){

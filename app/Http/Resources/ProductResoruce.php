@@ -5,6 +5,7 @@ namespace App\Http\Resources;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
+use App\Models\Category;
 use App\Models\Product;
 
 class ProductResoruce extends JsonResource
@@ -16,7 +17,7 @@ class ProductResoruce extends JsonResource
             'id' => $product->id,
             'sku' => $product->sku,
             'serv' => $product->serv,
-            'category_id' => $product->category_id,
+            'category' => Category::find($product->category_id)->name,
             'desc' => $product->desc,
             'price' => $product->price,
             'cant' => count($product->licenses->where('state', 'A')),

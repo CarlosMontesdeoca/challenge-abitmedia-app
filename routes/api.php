@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 // });
 Route::post('login', 'App\Http\Controllers\UserController@authenticate');
 
-Route::group(['middleware' => ['jwt.verify']], function() {
+// Route::group(['middleware' => ['jwt.verify']], function() {
     Route::get('categories', 'App\Http\Controllers\CategoryController@getAll');
     Route::post('categories', 'App\Http\Controllers\CategoryController@create');
     Route::put('categories/{category}', 'App\Http\Controllers\CategoryController@update');
@@ -34,4 +34,4 @@ Route::group(['middleware' => ['jwt.verify']], function() {
     Route::post('licenses', 'App\Http\Controllers\LicenseController@create');
     Route::put('product/{product}/licenses', 'App\Http\Controllers\LicenseController@update');
     Route::delete('licenses/{license}', 'App\Http\Controllers\LicenseController@delete');
-});
+// });
