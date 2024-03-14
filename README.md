@@ -145,7 +145,7 @@ Para este ejemplo debes agregar (/api/{nombre de ruta}) en la dirección del ser
 #### Nota:  las siguientes pruebas se realizaron con [Postman](https://www.postman.com/downloads/)
 
 ### 1. Autenticación
-Para autenticarte en el sistema se creo un usuario de prueba 
+Para autenticarte en el sistema se creo un usuario de prueba, y para mejorar la seguridad del sistema las claves del usuario estan cifradas en la base de datos.
   
 - Usuario:  pruebas@algo.com
 - Clave: 123123
