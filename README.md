@@ -82,6 +82,8 @@ Regresa a la terminal donde tengas abierto el proyecto y ejecuta el siguiente co
 
 Inicia los servicios de MySQL y Apache, abre XAMPP e inicia los servicios 
 
+![imagen](https://github.com/CarlosMontesdeoca/challenge-abitmedia-app/blob/master/images/xaamp.PNG)
+
 Ingresa a MySQL desde el navegador
 
 ```bash
@@ -89,6 +91,8 @@ Ingresa a MySQL desde el navegador
 ```
 
 En la sección de Bases de Datos crea una llamada (abitmedia)
+
+![imagen](https://github.com/CarlosMontesdeoca/challenge-abitmedia-app/blob/master/images/mysql.PNG)
 
 Listo nuestra Api esta lista para trabajar  y se encuentra en linea, lo puedes comprobar ingresando por el navegador 
 
@@ -124,3 +128,9 @@ Ayudan a agrupar cada producto por su tipo (Servicio, antivirus, ofimática, ...
 Tiene la descripción y precios de cada producto o servicio.
  - Licencias
 son las licencias de software disponibles.
+
+![imagen](https://github.com/CarlosMontesdeoca/challenge-abitmedia-app/blob/master/images/tablas.PNG)
+
+# Como usar (Consultas Api)
+
+Ans te comenzar es importante conocer que se 
