@@ -138,7 +138,7 @@ son las licencias de software disponibles.
 ### Rutas
 El api consta de 13 rutas de las cuales una es publica y las otras 12 estan protegidas por autenticación, [ver](https://github.com/CarlosMontesdeoca/challenge-abitmedia-app/blob/master/routes/api.php).
 
-Para este ejemplo debes agregar (/api/<<nombre de ruta >>) en la dirección del servidor.
+Para este ejemplo debes agregar (/api/{nombre de ruta}) en la dirección del servidor.
 ```bash
    http://127.0.0.1/challenge-abitmedia-app/public/api/login
 ```
@@ -163,11 +163,11 @@ Dentro del cuerpo ingresa:
 ```
 
 #### token
-El APi te retornara un token que sera la llave de acceso para las siguientes rutas.
+El Api te retornara un token que sera la llave de acceso para las siguientes rutas.
 
 ![imagen](https://github.com/CarlosMontesdeoca/challenge-abitmedia-app/blob/master/images/login.PNG)
 
-#### Nota: para las siguientes rutas es importante agregar a la cabecera de las consultas el parametro de autenticación, usando como balor: Bearer + <<token>>
+#### Nota: para las siguientes rutas es importante agregar a la cabecera de las consultas el parametro de autenticación, usando como balor: Bearer + { token }
 
 ![imagen](https://github.com/CarlosMontesdeoca/challenge-abitmedia-app/blob/master/images/auth.PNG)
 
@@ -205,10 +205,10 @@ En el cuerpo de la consulta ingresar (name) es irrepetible
 
 ### 2.3. PUT
 
-Para editar una categoria, asegurate de cambiar <<id>> por el valor de la categoria respectiva:
+Para editar una categoria, asegurate de cambiar {id>> por el valor de la categoria respectiva:
 
 ```bash
-http://127.0.0.1/challenge-abitmedia-app/public/api/category/<<id>>
+http://127.0.0.1/challenge-abitmedia-app/public/api/category/{id>>
 ```
 En el cuerpo de la consulta ingresar (name) es irrepetible
 ```bash
@@ -223,10 +223,10 @@ En el cuerpo de la consulta ingresar (name) es irrepetible
 
 ### 2.4. DELETE
 
-Para eliminar una categoria, asegurate de cambiar <<id>> por el valor de la categoria respectiva:
+Para eliminar una categoria, asegurate de cambiar {id} por el valor de la categoria respectiva:
 
 ```bash
-http://127.0.0.1/challenge-abitmedia-app/public/api/category/<<id>>
+http://127.0.0.1/challenge-abitmedia-app/public/api/category/{id}
 ```
 
 #### Respuesta.
@@ -237,9 +237,9 @@ http://127.0.0.1/challenge-abitmedia-app/public/api/category/<<id>>
 
 ### 3.1. Get
 
-Para consultar el listado de todos los productos de una categoría, asegurate de cambiar <<category_id>> por el id de la categoría deseada:
+Para consultar el listado de todos los productos de una categoría, asegurate de cambiar {category_id} por el id de la categoría deseada:
 ```bash
-http://127.0.0.1/challenge-abitmedia-app/public/api/category/<<category_id>>/products
+http://127.0.0.1/challenge-abitmedia-app/public/api/category/{category_id}/products
 ```
 
 #### Respuesta
@@ -271,10 +271,10 @@ En el cuerpo de la consulta ingresar (sku) es irrepetible y solo admite 10 carac
 
 ### 3.3. PUT
 
-Para editar un producto, asegurate de cambiar <<id>> por el valor de la categoria respectiva:
+Para editar un producto, asegurate de cambiar {id} por el valor de la categoria respectiva:
 
 ```bash
-http://127.0.0.1/challenge-abitmedia-app/public/api/products/<<id>>
+http://127.0.0.1/challenge-abitmedia-app/public/api/products/{id}
 ```
 ```bash
 {
@@ -291,10 +291,10 @@ http://127.0.0.1/challenge-abitmedia-app/public/api/products/<<id>>
 
 ### 3.4. DELETE
 
-Para eliminar un producto, asegurate de cambiar <<id>> por el valor del producto respectiv0:
+Para eliminar un producto, asegurate de cambiar {id} por el valor del producto respectiv0:
 
 ```bash
-http://127.0.0.1/challenge-abitmedia-app/public/api/products/<<id>>
+http://127.0.0.1/challenge-abitmedia-app/public/api/products/{id}
 ```
 
 #### Respuesta.
@@ -304,9 +304,9 @@ http://127.0.0.1/challenge-abitmedia-app/public/api/products/<<id>>
 
 ### 4.1. Get
 
-Para consultar el listado de todos las licencias de una categoría, asegurate de cambiar <<product_id>> por el id del producto deseada:
+Para consultar el listado de todos las licencias de una categoría, asegurate de cambiar {product_id} por el id del producto deseada:
 ```bash
-http://127.0.0.1/challenge-abitmedia-app/public/api/product/<<product_id>>/licenses
+http://127.0.0.1/challenge-abitmedia-app/public/api/product/{product_id}/licenses
 ```
 
 #### Respuesta
@@ -337,10 +337,10 @@ En el cuerpo de la consulta ingresar cant que es el número de licencias nuevas 
 
 ### 4.3. PUT
 
-Para editar o vender licencias, asegurate de cambiar <<product_id>> por el valor del producto respectiva:
+Para editar o vender licencias, asegurate de cambiar {product_id} por el valor del producto respectiva:
 
 ```bash
-http://127.0.0.1/challenge-abitmedia-app/public/api/product/<<product_id>>/licenses
+http://127.0.0.1/challenge-abitmedia-app/public/api/product/{product_id}/licenses
 ```
 ```bash
 {
@@ -356,10 +356,10 @@ http://127.0.0.1/challenge-abitmedia-app/public/api/product/<<product_id>>/licen
 
 ### 4.4. DELETE
 
-Para eliminar una licencia, asegurate de cambiar <<id>> por el valor de la licencia respectiva:
+Para eliminar una licencia, asegurate de cambiar {id} por el valor de la licencia respectiva:
 
 ```bash
-http://127.0.0.1/challenge-abitmedia-app/public/api/licenses/<<id>>
+http://127.0.0.1/challenge-abitmedia-app/public/api/licenses/{id}
 ```
 
 #### Respuesta.
