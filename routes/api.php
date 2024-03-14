@@ -24,8 +24,12 @@ Route::post('categories', 'App\Http\Controllers\CategoryController@create');
 Route::put('categories/{category}', 'App\Http\Controllers\CategoryController@update');
 Route::delete('categories/{category}', 'App\Http\Controllers\CategoryController@delete');
 
-
 Route::get('category/{category}/products', 'App\Http\Controllers\ProductController@getAll');
 Route::post('products', 'App\Http\Controllers\ProductController@create');
 Route::put('products/{product}', 'App\Http\Controllers\ProductController@update');
 Route::delete('products/{product}', 'App\Http\Controllers\ProductController@delete');
+
+Route::get('product/{product}/licenses', 'App\Http\Controllers\LicenseController@getAll');
+Route::post('licenses', 'App\Http\Controllers\LicenseController@create');
+Route::put('licenses/{license}', 'App\Http\Controllers\LicenseController@update');
+Route::delete('licenses/{license}', 'App\Http\Controllers\LicenseController@delete');

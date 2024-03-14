@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Product;
 
+use App\Http\Resources\ProductResoruce;
+
 class ProductController extends Controller
 {
     public function getAll(Category $category){
@@ -15,7 +17,7 @@ class ProductController extends Controller
                 'error' => 'No existe la categoria ingresada'
             ], 404);
         }
-        return response()->json($category->products, 200);
+        return response()->json(ProductResoruce::collection($category->products), 200);
     }
     
     public function create(Request $request){

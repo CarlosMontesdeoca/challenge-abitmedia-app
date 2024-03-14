@@ -18,7 +18,10 @@ class Product extends Model
         'price'
     ];
 
-    
+    public function licenses() {
+        return $this->hasMany(License::class);
+    }
+
     public function category() {
         return $this->belongsTo(Category::class);
     }
