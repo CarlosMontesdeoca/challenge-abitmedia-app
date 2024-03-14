@@ -19,7 +19,7 @@ class ProductResoruce extends JsonResource
             'category_id' => $product->category_id,
             'desc' => $product->desc,
             'price' => $product->price,
-            'cant' => count($product->licenses),
+            'cant' => count($product->licenses->where('state', 'A')),
             'licenses' => ($product->serv) ? null : "/api/product/$this->id/licenses"
         ];
     }

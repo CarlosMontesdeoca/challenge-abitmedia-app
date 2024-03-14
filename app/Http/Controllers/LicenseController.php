@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 use App\Models\License;
 use App\Models\Product;
@@ -21,32 +22,42 @@ class LicenseController extends Controller
     }
     
     public function create(Request $request){
-        $key = Product::find($request->id);
-        $logs = [];
-        if($key) {
-            return response()->json([
-                'error' => 'La identificación SKU ya existe',
-                'info' => $key
-            ], 409);
+        for ($i = 0; $i < $request->cant; $i++) {
+            $license = $this->generateUniqueLicense();
+            License::create(['product_id' => $request->product_id, 'lic' => $license]);
         }
-        if (strlen($request->id) != 10){ array_push($logs, 'Identificador SKU debe tener 10 caracteres');}
-        if (!$request->desc || $request->desc === ''){ array_push($logs, 'No existe una descripción del producto');}
-        if (Product::where('desc', $request->desc)
-        ->where('category_id', $request->category_id)
-        ->first()){ array_push($logs, 'El producto / Servicio que intenta ingresar ya existe');}
-        if (count($logs) > 0){
-            return response()->json([
-                'error' => $logs
-            ], 409);
-        }
-        return response()->json(Product::create($request->all()), 201);
+        return response()->json("$request->cant licencias ingresadas.", 201);
     }
     
     public function update(Product $product, Request $request){
-        return response()->json($product->update($request->all()), 200);
+        $licenses = $product->licenses->where('state', 'A');
+        if ($request->cant > count($licenses)){
+            return response()->json([
+                'error' => 'No existe suficientes licencias'
+            ], 404); 
+        }
+        for ($i = 0; $i < $request->cant; $i++){
+            $licenses[$i]->update([
+                'state' => 'I',
+                'client' => $request->client
+            ]);
+        }
+        return response()->json("$request->cant licencias vendidas", 200);
     }
     
-    public function delete(Product $product){
-        return response()->json($product->delete(), 201);
+    public function delete(License $license){
+        return response()->json($license->delete(), 201);
+    }
+
+    private function generateUniqueLicense()
+    {
+        $license = Str::random(100);
+        
+        // Verificar si el serial ya existe en la base de datos
+        while (License::where('lic', $license)->exists()) {
+            $license = Str::random(100);
+        }
+
+        return $license;
     }
 }

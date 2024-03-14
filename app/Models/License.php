@@ -12,7 +12,8 @@ class License extends Model
     protected $fillable = [
         'lic',
         'product_id',
-        'state',
+        'client',
+        'state'
     ];
     
     public function product() {
